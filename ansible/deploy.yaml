@@ -1,0 +1,9 @@
+- hosts: localhost
+  become: true
+  tasks:
+    - name: Build Docker Image
+      command: docker build -t devops-app:latest ./docker
+
+    - name: Deploy to Kubernetes
+      command: kubectl apply -f k8s/
+
